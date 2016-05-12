@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<div>
+    <h1>{% trans "Search History" %}</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>{% trans "Phrase" %}</th>
+            <th>{% trans "Times Searched" %}</th>
+            <th>{% trans "Last Searched" %}</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for searchterm in object_list %}
+        <tr data-phrase='{{searchterm.phrase}}'>
+            <td>{{ searchterm.phrase }}</td>
+            <td>{{ searchterm.count }}</td>
+            <td>{{ searchterm.lastsearch }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

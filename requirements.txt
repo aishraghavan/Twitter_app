@@ -1,0 +1,4 @@
+Django==1.5.1
+tweepy==2.2
+mock==1.0.1
+pytz>=2013d

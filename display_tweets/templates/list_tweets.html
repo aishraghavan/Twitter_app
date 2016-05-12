@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h1> {% blocktrans %}Tweets for {% endblocktrans %} {{ key_phrase }}</h1>
+<div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>{% blocktrans %} Tweets {% endblocktrans %}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% if not object_list %}
+        <tr>
+              <td>{% blocktrans %}Sorry. No Tweets found.{% endblocktrans %}</td>
+        </tr>
+      {% else %}
+        {% for tweet in object_list %}
+        <tr>
+              <td>{{ tweet }}</td>
+        </tr>
+        {% endfor %}
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}

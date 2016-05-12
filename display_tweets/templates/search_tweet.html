@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+<h1> Search Tweets</h1>
+
+<form method="POST" action="">{% csrf_token %}
+
+    {% for field in form %}
+    <div id="{{ field.auto_id }}_container">
+        {{ field.help_text }}
+        <div>
+            {{ field.label_tag }} {{ field }}
+        </div>
+        <div id="{{ field.auto_id }}_errors">
+            {{ field.errors }}
+        </div>
+    </div>
+    {% endfor %}
+    <input type="submit" class="btn btn-success">
+    <input type="reset" class="btn btn-default">
+</form>
+
+{% endblock%}
